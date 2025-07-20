@@ -171,7 +171,11 @@ export function HeroSection() {
             <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 rounded-3xl overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10"></div>
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-8xl animate-float">👨‍💻</div>
+                <img 
+                  src="/profile-pic.JPG" 
+                  alt="Nitin Choudhary" 
+                  className="w-80 h-80 object-cover rounded-3xl shadow-2xl animate-float"
+                />
               </div>
             </div>
             

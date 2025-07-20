@@ -53,7 +53,8 @@ export function BuyResumeSection() {
     
     try {
       // Create order on backend
-      const response = await fetch('/api/create-order', {
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+      const response = await fetch(`${apiUrl}/api/create-order`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -62,6 +63,11 @@ export function BuyResumeSection() {
       });
 
       const { orderId, amount, currency } = await response.json();
+
+      // Check if Razorpay key is available
+      if (!process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID) {
+        throw new Error('Razorpay key not configured');
+      }
 
       // Initialize Razorpay
       const options = {
@@ -99,7 +105,17 @@ export function BuyResumeSection() {
     } catch (error) {
       console.error('Payment error:', error);
       setIsLoading(false);
-      alert('Failed to initialize payment. Please try again.');
+      
+      // More specific error messages
+      if (error.message?.includes('fetch')) {
+        alert('Cannot connect to payment server. Please check if the backend is running.');
+      } else if (error.message?.includes('order')) {
+        alert('Failed to create payment order. Please try again.');
+      } else if (error.message?.includes('Razorpay key not configured')) {
+        alert('Payment system not configured. Please set up Razorpay credentials.');
+      } else {
+        alert('Failed to initialize payment. Please try again.');
+      }
     }
   };
 
@@ -185,6 +201,13 @@ export function BuyResumeSection() {
                 <p className="text-center text-sm text-gray-500 font-light">
                   Secure payment powered by Razorpay. Instant download after payment.
                 </p>
+                {!process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID && (
+                  <div className="text-center p-3 bg-yellow-50 border border-yellow-200 rounded-lg">
+                    <p className="text-sm text-yellow-700">
+                      ⚠️ Development Mode: Add Razorpay credentials to enable payments
+                    </p>
+                  </div>
+                )}
               </div>
 
               {/* Right side - What's included */}

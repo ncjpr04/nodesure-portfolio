@@ -11,6 +11,7 @@ export default function SuccessPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const [pollCount, setPollCount] = useState(0);
   const searchParams = useSearchParams();
 
   useEffect(() => {
@@ -29,7 +30,15 @@ export default function SuccessPage() {
     // Poll for download token
     const pollForToken = async () => {
       try {
-        const response = await fetch('/api/get-download-token', {
+        // Add timeout after 10 attempts (20 seconds)
+        if (pollCount >= 10) {
+          setError('Download preparation timed out. Please contact support.');
+          setIsLoading(false);
+          return;
+        }
+
+        const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+        const response = await fetch(`${apiUrl}/api/get-download-token`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -48,12 +57,14 @@ export default function SuccessPage() {
           setIsLoading(false);
         } else if (data.status === 'pending') {
           // Continue polling
+          setPollCount(prev => prev + 1);
           setTimeout(pollForToken, 2000);
         } else {
           setError(data.message || 'Failed to generate download token');
           setIsLoading(false);
         }
       } catch (err) {
+        console.error('Polling error:', err);
         setError('Network error. Please try again.');
         setIsLoading(false);
       }
@@ -66,7 +77,8 @@ export default function SuccessPage() {
     if (!downloadToken) return;
 
     try {
-      const response = await fetch(`/api/validate-token/${downloadToken}`);
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+      const response = await fetch(`${apiUrl}/api/validate-token/${downloadToken}`);
       const data = await response.json();
 
       if (response.ok && data.downloadUrl) {

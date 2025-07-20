@@ -1,0 +1,8 @@
+# Frontend Environment Variables
+# Copy this content to a file named .env.local in the root directory
+
+# Razorpay Configuration (Public Key)
+NEXT_PUBLIC_RAZORPAY_KEY_ID=your_razorpay_key_id
+
+# API Configuration
+NEXT_PUBLIC_API_URL=http://localhost:5000 

@@ -18,12 +18,12 @@ const features = [
 ];
 
 const included = [
-  'Detailed work experience and achievements',
-  'Technical skills and certifications',
-  'Project portfolio and case studies',
-  'Professional references and recommendations',
-  'Contact information and social links',
-  'Formatted for ATS compatibility'
+  'Detailed internship experience and achievements',
+  'Technical skills and programming languages',
+  'Project portfolio with live demos',
+  'Education and academic performance',
+  'DSA problem-solving achievements',
+  'Contact information and social links'
 ];
 
 export function BuyResumeSection() {
@@ -74,7 +74,7 @@ export function BuyResumeSection() {
         key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
         amount: amount,
         currency: currency,
-        name: 'John Doe Portfolio',
+        name: 'Nitin Choudhary Portfolio',
         description: 'Premium Resume Download',
         order_id: orderId,
         handler: function (response: any) {
@@ -155,7 +155,7 @@ export function BuyResumeSection() {
                   <div>
                     <h3 className="text-3xl font-semibold text-gray-900 mb-3">Premium Resume Package</h3>
                     <p className="text-gray-600 font-light leading-relaxed">
-                      Complete professional profile with 5+ years of experience in full-stack development.
+                      Complete professional profile with internship experience in full-stack development and modern web technologies.
                     </p>
                   </div>
                   <div className="flex items-baseline space-x-2">
@@ -231,9 +231,9 @@ export function BuyResumeSection() {
                   <ul className="space-y-2 text-sm text-gray-600 font-light">
                     <li>• Professionally designed and formatted</li>
                     <li>• ATS-friendly for automated screening</li>
-                    <li>• Includes quantified achievements</li>
-                    <li>• Updated with latest projects and skills</li>
-                    <li>• Optimized for tech industry standards</li>
+                    <li>• Includes internship achievements and projects</li>
+                    <li>• Updated with latest technologies and skills</li>
+                    <li>• Optimized for entry-level tech positions</li>
                   </ul>
                 </div>
               </div>

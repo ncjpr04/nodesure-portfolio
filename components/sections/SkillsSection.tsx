@@ -14,14 +14,14 @@ import {
 import { useEffect, useRef, useState } from 'react';
 
 const skills = [
-  { name: 'React & Next.js', icon: Code, description: 'Modern frontend frameworks', color: 'from-blue-500 to-cyan-500' },
-  { name: 'Node.js & Express', icon: Server, description: 'Backend development', color: 'from-green-500 to-emerald-500' },
-  { name: 'MongoDB & PostgreSQL', icon: Database, description: 'Database management', color: 'from-purple-500 to-violet-500' },
-  { name: 'TypeScript', icon: Layers, description: 'Type-safe development', color: 'from-orange-500 to-red-500' },
-  { name: 'AWS & Cloud', icon: Cloud, description: 'Cloud infrastructure', color: 'from-yellow-500 to-orange-500' },
-  { name: 'Mobile Development', icon: Smartphone, description: 'React Native & PWA', color: 'from-pink-500 to-rose-500' },
-  { name: 'DevOps & CI/CD', icon: GitBranch, description: 'Deployment automation', color: 'from-indigo-500 to-blue-500' },
-  { name: 'Web Performance', icon: Globe, description: 'Optimization & SEO', color: 'from-teal-500 to-cyan-500' },
+  { name: 'React & Next.js', icon: Code, description: 'Modern frontend frameworks with TypeScript', color: 'from-blue-500 to-cyan-500' },
+  { name: 'TypeScript & JavaScript', icon: Layers, description: 'Type-safe development and ES6+', color: 'from-orange-500 to-red-500' },
+  { name: 'Tailwind CSS & UI', icon: Globe, description: 'Modern styling and component libraries', color: 'from-teal-500 to-cyan-500' },
+  { name: 'Python & Selenium', icon: Server, description: 'Backend automation and web scraping', color: 'from-green-500 to-emerald-500' },
+  { name: 'PostgreSQL & Prisma', icon: Database, description: 'Database management and ORM', color: 'from-purple-500 to-violet-500' },
+  { name: 'Blockchain & Web3', icon: Cloud, description: 'Solana, Web3.js development', color: 'from-yellow-500 to-orange-500' },
+  { name: 'Git & DevOps', icon: GitBranch, description: 'Version control and deployment', color: 'from-indigo-500 to-blue-500' },
+  { name: 'DSA & Problem Solving', icon: Smartphone, description: '300+ problems solved on LeetCode', color: 'from-pink-500 to-rose-500' },
 ];
 
 export function SkillsSection() {
@@ -100,16 +100,16 @@ export function SkillsSection() {
         {/* Stats section */}
         <div className={`mt-24 grid md:grid-cols-3 gap-8 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{ animationDelay: '0.8s' }}>
           <div className="text-center p-8 bg-white/60 backdrop-blur-sm rounded-3xl border border-gray-200/50">
-            <div className="text-4xl font-light text-gray-900 mb-2">5+</div>
-            <div className="text-gray-600 font-medium">Years Experience</div>
+            <div className="text-4xl font-light text-gray-900 mb-2">8.6</div>
+            <div className="text-gray-600 font-medium">CGPA (B.Tech CSE)</div>
           </div>
           <div className="text-center p-8 bg-white/60 backdrop-blur-sm rounded-3xl border border-gray-200/50">
-            <div className="text-4xl font-light text-gray-900 mb-2">50+</div>
-            <div className="text-gray-600 font-medium">Projects Completed</div>
+            <div className="text-4xl font-light text-gray-900 mb-2">300+</div>
+            <div className="text-gray-600 font-medium">DSA Problems Solved</div>
           </div>
           <div className="text-center p-8 bg-white/60 backdrop-blur-sm rounded-3xl border border-gray-200/50">
-            <div className="text-4xl font-light text-gray-900 mb-2">20+</div>
-            <div className="text-gray-600 font-medium">Happy Clients</div>
+            <div className="text-4xl font-light text-gray-900 mb-2">2</div>
+            <div className="text-gray-600 font-medium">Internships Completed</div>
           </div>
         </div>
       </div>

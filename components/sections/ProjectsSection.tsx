@@ -7,31 +7,60 @@ import { useEffect, useRef, useState } from 'react';
 
 const projects = [
   {
-    title: 'E-Commerce Platform',
-    description: 'Full-stack e-commerce solution with React, Node.js, and MongoDB. Features include user authentication, payment integration, and admin dashboard.',
-    technologies: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-    github: 'https://github.com',
-    demo: 'https://demo.com',
-    image: 'https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800',
-    gradient: 'from-blue-500 to-purple-600'
-  },
-  {
-    title: 'Task Management App',
-    description: 'Collaborative project management tool with real-time updates, drag-and-drop functionality, and team collaboration features.',
-    technologies: ['Next.js', 'PostgreSQL', 'Socket.io', 'Tailwind'],
-    github: 'https://github.com',
-    demo: 'https://demo.com',
+    title: 'SkillSight',
+    description: 'AI-powered LinkedIn profile analyzer that extracts, evaluates, and enhances user profiles for better career visibility using Python, Selenium, and Gemini AI.',
+    technologies: ['Python', 'Selenium', 'Gemini AI', 'Next.js', 'Tailwind'],
+    github: 'https://github.com/ncjpr04',
+    demo: 'https://skills-sight.vercel.app/',
     image: 'https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&w=800',
-    gradient: 'from-green-500 to-teal-600'
+    gradient: 'from-blue-500 to-purple-600',
+    status: 'In Progress'
   },
   {
-    title: 'Analytics Dashboard',
-    description: 'Real-time data visualization dashboard with interactive charts, filters, and export functionality for business intelligence.',
-    technologies: ['React', 'D3.js', 'Express', 'Redis'],
-    github: 'https://github.com',
-    demo: 'https://demo.com',
+    title: 'FitVerse',
+    description: 'Decentralized fitness tracking application integrating smart contracts for goal-based token rewards using Solana blockchain technology.',
+    technologies: ['Next.js', 'TypeScript', 'Rust', 'Solana', 'Anchor'],
+    github: 'https://github.com/ncjpr04/bcryptexe',
+    demo: 'https://github.com/ncjpr04/bcryptexe',
+    image: 'https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800',
+    gradient: 'from-green-500 to-teal-600',
+    status: 'In Progress'
+  },
+  {
+    title: 'TrueBalance',
+    description: 'Personal finance management platform for tracking digital and fiat assets in real-time with authentication and analytics dashboards.',
+    technologies: ['Next.js', 'Firebase', 'TypeScript', 'Shadcn UI'],
+    github: 'https://github.com/ncjpr04',
+    demo: 'https://truebalance1.vercel.app/',
     image: 'https://images.pexels.com/photos/669610/pexels-photo-669610.jpeg?auto=compress&cs=tinysrgb&w=800',
     gradient: 'from-orange-500 to-red-600'
+  },
+  {
+    title: 'ReFoodify',
+    description: 'Donation-based food distribution platform with automated task pipelines and secure donation workflows.',
+    technologies: ['Next.js', 'Firebase', 'Shadcn UI', 'TypeScript'],
+    github: 'https://github.com/ncjpr04',
+    demo: 'https://refoodify.vercel.app/',
+    image: 'https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&w=800',
+    gradient: 'from-pink-500 to-rose-600'
+  },
+  {
+    title: 'Chatify',
+    description: 'Real-time messaging application with WebSockets and dynamic routing for seamless communication.',
+    technologies: ['Next.js', 'WebSockets', 'Real-time', 'UI/UX'],
+    github: 'https://github.com/ncjpr04',
+    demo: 'https://chatifyncjpr04.vercel.app/',
+    image: 'https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800',
+    gradient: 'from-indigo-500 to-blue-600'
+  },
+  {
+    title: 'Weather App',
+    description: 'Live weather updates application using OpenWeatherMap API with modern UI and real-time data.',
+    technologies: ['JavaScript', 'API Integration', 'Weather Data'],
+    github: 'https://github.com/ncjpr04',
+    demo: 'https://ncjpr04-weather-app.netlify.app/',
+    image: 'https://images.pexels.com/photos/669610/pexels-photo-669610.jpeg?auto=compress&cs=tinysrgb&w=800',
+    gradient: 'from-yellow-500 to-orange-600'
   }
 ];
 
@@ -102,6 +131,7 @@ export function ProjectsSection() {
                     size="sm" 
                     variant="secondary"
                     className="bg-white/90 hover:bg-white text-gray-900 backdrop-blur-sm border-0 shadow-lg"
+                    onClick={() => window.open(project.github, '_blank')}
                   >
                     <Github className="w-4 h-4 mr-2" />
                     Code
@@ -109,6 +139,7 @@ export function ProjectsSection() {
                   <Button 
                     size="sm"
                     className="bg-gray-900/90 hover:bg-gray-900 text-white backdrop-blur-sm border-0 shadow-lg"
+                    onClick={() => window.open(project.demo, '_blank')}
                   >
                     <ExternalLink className="w-4 h-4 mr-2" />
                     Demo
@@ -118,9 +149,16 @@ export function ProjectsSection() {
               
               <CardContent className="p-8 space-y-6">
                 <div>
-                  <h3 className="text-2xl font-semibold text-gray-900 mb-3 group-hover:text-gray-800 transition-colors duration-300">
-                    {project.title}
-                  </h3>
+                  <div className="flex items-center justify-between mb-3">
+                    <h3 className="text-2xl font-semibold text-gray-900 group-hover:text-gray-800 transition-colors duration-300">
+                      {project.title}
+                    </h3>
+                    {project.status && (
+                      <span className="px-3 py-1 bg-yellow-100 text-yellow-800 text-xs rounded-full font-medium">
+                        {project.status}
+                      </span>
+                    )}
+                  </div>
                   <p className="text-gray-600 leading-relaxed font-light">
                     {project.description}
                   </p>
@@ -147,6 +185,7 @@ export function ProjectsSection() {
             variant="outline"
             size="lg"
             className="px-8 py-4 rounded-full text-lg font-medium border-gray-300 hover:border-gray-400 transition-all duration-300 hover:scale-105"
+            onClick={() => window.open('https://github.com/ncjpr04', '_blank')}
           >
             View All Projects
             <ExternalLink className="w-5 h-5 ml-2" />

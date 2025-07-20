@@ -1,7 +1,7 @@
 'use client';
 
 import { Button } from '@/components/ui/button';
-import { ArrowDown, Download, Github, Linkedin, Mail, MapPin } from 'lucide-react';
+import { ArrowDown, Download, Github, Linkedin, Mail, MapPin, ExternalLink } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 export function HeroSection() {
@@ -33,7 +33,7 @@ export function HeroSection() {
       <nav className="absolute top-0 left-0 right-0 z-50 p-6">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className={`text-2xl font-bold text-gray-800 ${isVisible ? 'animate-slide-in-left' : 'opacity-0'}`}>
-            John Doe
+            Nitin Choudhary
           </div>
           <div className={`hidden md:flex items-center space-x-8 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
             <button 
@@ -41,6 +41,12 @@ export function HeroSection() {
               className="text-gray-600 hover:text-gray-900 transition-colors duration-300 font-medium"
             >
               Skills
+            </button>
+            <button 
+              onClick={() => document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' })}
+              className="text-gray-600 hover:text-gray-900 transition-colors duration-300 font-medium"
+            >
+              Experience
             </button>
             <button 
               onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
@@ -80,18 +86,18 @@ export function HeroSection() {
             </h1>
             
             <p className="text-xl text-gray-600 leading-relaxed max-w-lg font-light">
-              Crafting exceptional digital experiences with modern technologies. 
-              Specialized in React, Node.js, and scalable cloud solutions.
+              Passionate about creating innovative digital solutions with modern technologies. 
+              Specialized in React, Next.js, and blockchain development.
             </p>
 
             <div className="flex items-center space-x-6 text-gray-500">
               <div className="flex items-center space-x-2">
                 <MapPin className="w-4 h-4" />
-                <span className="text-sm">San Francisco, CA</span>
+                <span className="text-sm">Jaipur, Rajasthan</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Mail className="w-4 h-4" />
-                <span className="text-sm">john@example.com</span>
+                <span className="text-sm">nitinchoudhary22112004@gmail.com</span>
               </div>
             </div>
           </div>
@@ -118,7 +124,7 @@ export function HeroSection() {
 
           <div className={`flex items-center space-x-4 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{ animationDelay: '0.6s' }}>
             <a 
-              href="https://github.com" 
+              href="https://github.com/ncjpr04" 
               target="_blank" 
               rel="noopener noreferrer"
               className="w-12 h-12 bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-full flex items-center justify-center hover:bg-gray-50 transition-all duration-300 hover:scale-110"
@@ -126,7 +132,7 @@ export function HeroSection() {
               <Github className="w-5 h-5 text-gray-700" />
             </a>
             <a 
-              href="https://linkedin.com" 
+              href="https://www.linkedin.com/in/ncjpr04/" 
               target="_blank" 
               rel="noopener noreferrer"
               className="w-12 h-12 bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-full flex items-center justify-center hover:bg-gray-50 transition-all duration-300 hover:scale-110"
@@ -134,7 +140,23 @@ export function HeroSection() {
               <Linkedin className="w-5 h-5 text-gray-700" />
             </a>
             <a 
-              href="mailto:john@example.com"
+              href="https://www.leetcode.com/ncjpr04"
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="w-12 h-12 bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-full flex items-center justify-center hover:bg-gray-50 transition-all duration-300 hover:scale-110"
+            >
+              <span className="text-lg font-bold text-gray-700">LC</span>
+            </a>
+            <a 
+              href="https://bento.me/ncjpr04"
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="w-12 h-12 bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-full flex items-center justify-center hover:bg-gray-50 transition-all duration-300 hover:scale-110"
+            >
+              <ExternalLink className="w-5 h-5 text-gray-700" />
+            </a>
+            <a 
+              href="mailto:nitinchoudhary22112004@gmail.com"
               className="w-12 h-12 bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-full flex items-center justify-center hover:bg-gray-50 transition-all duration-300 hover:scale-110"
             >
               <Mail className="w-5 h-5 text-gray-700" />

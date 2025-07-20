@@ -102,7 +102,7 @@ export function BuyResumeSection() {
 
       const rzp = new window.Razorpay(options);
       rzp.open();
-    } catch (error) {
+    } catch (error: any) {
       console.error('Payment error:', error);
       setIsLoading(false);
       
@@ -213,7 +213,7 @@ export function BuyResumeSection() {
               {/* Right side - What's included */}
               <div className="bg-gray-50/80 p-12 space-y-8">
                 <div>
-                  <h4 className="text-2xl font-semibold text-gray-900 mb-6">What's Included</h4>
+                  <h4 className="text-2xl font-semibold text-gray-900 mb-6">What&apos;s Included</h4>
                   <div className="space-y-4">
                     {included.map((item, index) => (
                       <div key={index} className="flex items-start space-x-3">
@@ -250,8 +250,8 @@ export function BuyResumeSection() {
               ))}
             </div>
             <p className="text-gray-700 italic font-light leading-relaxed mb-4">
-              "John's resume perfectly showcased his technical skills and project experience. 
-              The format was clean, professional, and made our hiring decision easy."
+              &ldquo;Nitin&apos;s resume perfectly showcased his technical skills and project experience. 
+              The format was clean, professional, and made our hiring decision easy.&rdquo;
             </p>
             <div className="text-sm text-gray-600">
               <div className="font-medium">Sarah Johnson</div>

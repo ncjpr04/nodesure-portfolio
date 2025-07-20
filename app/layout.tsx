@@ -1,14 +1,17 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import Script from 'next/script';
+import { Inter } from 'next/font/google';
+
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'John Doe - Full-Stack Developer Portfolio',
+  title: 'Nitin Choudhary - Full-Stack Developer Portfolio',
   description: 'Professional portfolio showcasing full-stack development skills with secure resume purchase functionality.',
   keywords: ['portfolio', 'full-stack developer', 'react', 'nodejs', 'resume'],
-  authors: [{ name: 'John Doe' }],
+  authors: [{ name: 'Nitin Choudhary' }],
   openGraph: {
-    title: 'John Doe - Full-Stack Developer',
+    title: 'Nitin Choudhary - Full-Stack Developer',
     description: 'Professional portfolio with secure resume purchase',
     type: 'website',
   },
@@ -22,16 +25,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-          rel="stylesheet"
-        />
         <Script 
           src="https://checkout.razorpay.com/v1/checkout.js"
-          strategy="beforeInteractive"
+          strategy="afterInteractive"
         />
       </head>
-      <body className="font-sans">{children}</body>
+      <body className={`font-sans ${inter.className}`}>{children}</body>
     </html>
   );
 }

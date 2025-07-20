@@ -71,7 +71,7 @@ export default function SuccessPage() {
     };
 
     pollForToken();
-  }, [searchParams]);
+  }, [searchParams, pollCount]);
 
   const handleDownload = async () => {
     if (!downloadToken) return;
